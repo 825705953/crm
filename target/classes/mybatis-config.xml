@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+
+<configuration>
+    <!--必须写在configuration标签的下面第一个-->
+    <properties resource="jdbc.properties"/>
+    <!--输出日志-->
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+    <!--定义别名（定义后别名就是类名）-->
+<!--    <typeAliases>-->
+<!--        <package name="需要定义别名的类所在的包名"/>-->
+<!--    </typeAliases>-->
+    <!--定义sql映射文件的位置
+        name是包名，表示这个包下的所有sql映射文件都加载
+        要求：1.sql映射文件名称和dao接口名称完全一致，包括大小写
+             2.sql映射文件和dao接口必须在同一目录
+    -->
+    <environments default="myEn">
+        <environment id="myEn">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <package name="com.bjpowernode.dao"/>
+
+    </mappers>
+
+</configuration>
