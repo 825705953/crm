@@ -39,5 +39,7 @@ public class FinalTest {
         for (Student stu:stus){
             System.out.println(stu);
         }
+
+        System.out.println("Hello World!");
     }
 }
