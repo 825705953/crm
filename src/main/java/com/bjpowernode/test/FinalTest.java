@@ -34,5 +34,10 @@ public class FinalTest {
         for(Student s:slist){
             System.out.println(s);
         }
+
+        List<Student> stus = service.selectAll();
+        for (Student stu:stus){
+            System.out.println(stu);
+        }
     }
 }
